@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件-->
+<mapper namespace="com.classroomassistant.mapper.RemindMapper">
+    <select id="selectRemind" resultType="com.classroomassistant.pojo.Remind">
+        SELECT
+            distinct
+        r.id,
+        r.user_id,
+        r.content,
+        r.create_time,
+        r.STATUS,
+        r.type
+        FROM
+        remind r
+        LEFT JOIN course_and_user u ON u.course_id = r.course_id
+        left join user s on s.id = u.user_id
+        <where>
+            <if test="courseId">
+                r.course_id = ${courseId}
+            </if>
+            <if test="type!=null">
+              and  r.type = ${type}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+</mapper>

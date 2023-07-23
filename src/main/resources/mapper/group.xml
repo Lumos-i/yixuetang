@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件-->
+<mapper namespace="com.classroomassistant.mapper.UserMapper">
+    <select id="grouping1" resultType="com.classroomassistant.pojo.User">
+        SELECT
+        u.*
+        FROM
+        user u
+        LEFT JOIN course_and_user cu ON u.id = cu.user_id
+        LEFT JOIN performance p ON p.user_id = cu.user_id
+        <where>
+            <if test="sex!=null">
+                u.sex ='${sex}'
+            </if>
+            <if test="courseId!=null">
+                and cu.course_id = ${courseId}
+            </if>
+        </where>
+        order by  p.performance desc
+    </select>
+    <select id="grouping2" resultType="com.classroomassistant.pojo.User">
+        SELECT
+        u.*
+        FROM
+        user u
+        LEFT JOIN course_and_user cu ON u.id = cu.user_id
+        LEFT JOIN performance p ON p.user_id = cu.user_id
+        <where>
+            <if test="sex!=null">
+                u.sex ='${sex}'
+            </if>
+            <if test="courseId!=null">
+                and cu.course_id = ${courseId}
+            </if>
+        </where>
+
+    </select>
+</mapper>

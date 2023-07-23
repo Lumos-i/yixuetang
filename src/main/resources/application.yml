@@ -1,0 +1,71 @@
+server:
+  port: 8577
+  servlet:
+    context-path: /
+    session:
+      # session失效时间2小时
+      timeout: 10800
+# 数据源配置
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+  datasource:
+    # 数据库配置
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.116.41.66:3306/classroomassisant?userUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Zhaorongqing.1688
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 20
+      initial-size: 5
+      max-wait: 6000
+      min-idle: 5
+  mvc:
+    static-path-pattern: /**
+    hiddenmethod:
+      filter:
+        enabled: true
+  jackson:
+    default-property-inclusion: non_null  #Jason处理时忽略空值
+  #redis配置
+  redis:
+    host: 110.40.205.103
+    port: 6379
+    password: 1002800982
+    timeout: 1000
+#    lettuce:
+#      pool:
+#        max-active: 8
+#        max-idle: 8
+#        min-idle: 0
+#        max-wait: 100ms
+    database: 0
+  mail:
+    default-encoding: UTF-8
+    username: 1002800982@qq.com
+    host: smtp.qq.com
+    password: eqxzugqvxccsbbfc
+
+#mybatis-plus配置
+mybatis-plus:
+  type-aliases-package: com.classroomassistant.pojo
+  mapper-locations: classpath:mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: false
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+cos:
+  tengxun:
+    secretId: AKID3vXruhDRO5Ve18yYrtfANJzNUKuEH3Ym
+    secretKey: zh8JDwOYS5QUHn20i8H9j36sNcZFemdE
+    region: ap-nanjing
+    path: https://online-examination-1311156839.cos.ap-nanjing.myqcloud.com
+    bucketName: online-examination-1311156839
+    enable: true
+exam:
+  jwt:
+    secret: sajkdajndjkasdkjscsp
+    expire: 60480000
