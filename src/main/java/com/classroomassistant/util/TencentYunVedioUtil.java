@@ -22,16 +22,16 @@ import java.util.Date;
 public class TencentYunVedioUtil {
 
     //推流防盗链的key 你自己的推流K
-    public static final String push_key = "db3fc0d6c676ebb4158d8f2b91852a85";
+    public static final String push_key = "*******************";
     //拉流防盗链的key 你自己的直播K，注意域名需要去解析CNAME，推流k和拉流k可能相同
-    public static final String play_key = "yGPfKCXBtDWPRXQEWxrk";
+    public static final String play_key = "************";
     //推流地址
-    public static final String pushUrl ="rtmp://179674.push.tlivecloud.com/ive/";
+    public static final String pushUrl ="rtmp://*********.push.tlivecloud.com/ive/";
     //拉流地址 例子 rtmp  只需要将push 改成play即可
 //自己申请的播放地址域名xx.xxx.cn或xx.xxx.com
-    public static final String playUrl_rtmp ="rtmp://www.wall-e.icu/live/";
-    public static final String playUrl_flv ="https://www.wall-e.icu/live/";
-    public static final String playUrl_hls ="http://www.wall-e.icu/live/classassistant.m3u8";
+    public static final String playUrl_rtmp ="rtmp://*************/live/";
+    public static final String playUrl_flv ="https://*************/live/";
+    public static final String playUrl_hls ="http://*************/live/classassistant.m3u8";
 
 
     /**
